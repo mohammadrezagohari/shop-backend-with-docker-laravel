@@ -1,63 +1,45 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
-
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+<p align="center"><a href="https://www.linkedin.com/in/mohammad-reza-gohari/" target="_blank"><img src="https://media-exp1.licdn.com/dms/image/D5635AQEZHFGreTnUWw/profile-framedphoto-shrink_200_200/0/1650098775965?e=1652220000&v=beta&t=FgQ8cAtOe4knQ80U9dcpL6N7uUfg5dqXyY3gt_28tXc" width="400"></a></p>
+<p>
+    <h2 align="center">It's a simple of shop for your exam</h2>
 </p>
 
-## About Laravel
+## About Mohammad Reza
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Full-stack Software Engineer passionate since developer with 7+ years (4+ years Laravel) of experience and a track record of Laravel, PHP, C#, Asp.Net, SQL,MySQL, MariaDB, JavaScript, React JS, Git flow, Asp.Net Core, MVC, Entity Framework. Strong Engineering Professional with a Bachelor of Engineering (B.E.) focused on Computer Science Engineering.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+When I started to learn programming, I was 18 years old, and I selected Visual Basic programming, after then learn C# and Asp.Net and work on them for 4+ years. Well I was backend developer, After then I started to learn MVC Architecture and ORM Entity Framework. You know, I go to the other company to work with another skill, with Laravel. Laravel is very comparable with Asp.Net MVC, because Laravel has model, view, controller, blade engine, ORM Eloquent, Migration and Asp.Net MVC has model, view, controller, Razor engine, Entity Framework Code first, migration ...
+In military service time, I learn to JavaScript, It helps me to work with jQuery Ajax, and work with the libraries vue.js and React.js and use Next.js. absolutely, I can't work advance level with JS library. Now, I work in some projects with docker and microservice. I can get docker image for delivery to the DevOps.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+- Laravel
 
-## Learning Laravel
+- ASP.NET Core 
+- React.js 
+- Git
+- Next.js
+- Microsoft SQL Server
+- Docker
+- Vue.js
+- ASP.NET MVC
+- Search Engine Optimization (SEO)
+- C#
+- GitHub
+- TFS
+- Entity Framework
+- MySQL
+- PHP
+- Phalcon Framework
+- Object-Relational Mapping (ORM)
+- Webpack
+- npm
+- Nuget
+- Cascading Style Sheets (CSS)
+- Bootstrap
+- Git
+- Git flow
+- Scram 
+- Agile Methodologies
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
 
 ## License
 
