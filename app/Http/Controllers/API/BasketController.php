@@ -48,5 +48,8 @@ class BasketController extends Controller
     public function deleteItem($id)
     {
         $result = $this->IEloquentBasketRepository->deleteItem($id);
+        if (@$result)
+            return response()->json(['message' => 'success']);
+        return response()->json(['message' => 'fails']);
     }
 }

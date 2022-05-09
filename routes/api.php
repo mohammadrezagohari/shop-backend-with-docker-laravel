@@ -32,8 +32,8 @@ Route::group(['as' => 'baskets', 'prefix' => 'baskets'], function () {
     Route::get('/', [BasketController::class, 'CustomerIndex'])->name('customer.items');
     Route::post('/user/store', [BasketController::class, 'CustomerStore'])->name('customer.store');
     Route::get('/item/{id}', [BasketController::class, 'show'])->name('selectItem');
-    Route::get('/delete/{id}', [BasketController::class, 'deleteItem'])->name('deleteItem');
-    Route::get('/update/{id}', [BasketController::class, 'updateItem'])->name('updateItem');
+    Route::delete('/delete/{id}', [BasketController::class, 'deleteItem'])->name('deleteItem');
+    Route::patch('/update/{id}', [BasketController::class, 'updateItem'])->name('updateItem');
 });
 
 Route::group(['as' => 'card', 'prefix' => 'card'], function () {

@@ -58,7 +58,8 @@ class EloquentBasketRepository implements IEloquentBasketRepository
 
     public function deleteItem($id)
     {
-
+        $basket = Basket::findOrFail($id);
+        return $basket->delete();
     }
 
     public function checkPolicy(User $user = null, $identityCookie)
