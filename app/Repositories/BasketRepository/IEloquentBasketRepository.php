@@ -4,7 +4,6 @@ namespace App\Repositories\BasketRepository;
 
 use App\Models\Basket;
 use App\Models\User;
-use http\Client\Response;
 
 interface IEloquentBasketRepository
 {
@@ -17,6 +16,8 @@ interface IEloquentBasketRepository
     public function selectItem($id);
 
     public function deleteItem($id);
+
+    public function updateItem($id, $product, $count);
 
     public function checkPolicy(User $user, Basket $basket);
 

@@ -1,0 +1,347 @@
+{
+	"info": {
+		"_postman_id": "4d4df4a5-1bbf-4929-9852-a59cb30f2ddf",
+		"name": "gandom",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "get list product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://gandom.test/api/products/",
+							"protocol": "http",
+							"host": [
+								"gandom",
+								"test"
+							],
+							"path": [
+								"api",
+								"products",
+								""
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Baskets",
+			"item": [
+				{
+					"name": "get list your select baskets",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://gandom.test/api/baskets",
+							"protocol": "http",
+							"host": [
+								"gandom",
+								"test"
+							],
+							"path": [
+								"api",
+								"baskets"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "add item to your basket",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "count",
+									"value": "2",
+									"type": "text"
+								},
+								{
+									"key": "product",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://gandom.test/api/baskets/user/store",
+							"protocol": "http",
+							"host": [
+								"gandom",
+								"test"
+							],
+							"path": [
+								"api",
+								"baskets",
+								"user",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "delete item",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://gandom.test/api/baskets/delete/1",
+							"protocol": "http",
+							"host": [
+								"gandom",
+								"test"
+							],
+							"path": [
+								"api",
+								"baskets",
+								"delete",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update item",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{XSRF-TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "count",
+									"value": "11",
+									"type": "text"
+								},
+								{
+									"key": "product",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://gandom.test/api/baskets/update/1",
+							"protocol": "http",
+							"host": [
+								"gandom",
+								"test"
+							],
+							"path": [
+								"api",
+								"baskets",
+								"update",
+								"1"
+							],
+							"query": [
+								{
+									"key": "count",
+									"value": "12",
+									"disabled": true
+								},
+								{
+									"key": "product",
+									"value": "1",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "gohari11.asetoc@gmail.com11",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "mohammadreza11",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://gandom.test/api/auth/register",
+							"protocol": "http",
+							"host": [
+								"gandom",
+								"test"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"pm.sendRequest({\r",
+									"    url: 'http://gandom.test/sanctum/csrf-cookie',\r",
+									"    method: 'GET'\r",
+									"}, function (error, response, { cookies }) {\r",
+									"    if (!error) {\r",
+									"        pm.environment.set('XSRF-TOKEN', cookies.get('XSRF-TOKEN'))\r",
+									"    }\r",
+									"})"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "token",
+								"value": "{{$token}}",
+								"type": "text"
+							},
+							{
+								"key": "Context-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "gohari11.asetoc@gmail.com11",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://gandom.test/api/auth/login",
+							"protocol": "http",
+							"host": [
+								"gandom",
+								"test"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "list of items",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://gandom.test/api/users/active/list",
+							"protocol": "http",
+							"host": [
+								"gandom",
+								"test"
+							],
+							"path": [
+								"api",
+								"users",
+								"active",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "item select",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://gandom.test/api/users/active/1",
+							"protocol": "http",
+							"host": [
+								"gandom",
+								"test"
+							],
+							"path": [
+								"api",
+								"users",
+								"active",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

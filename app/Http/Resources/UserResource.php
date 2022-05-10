@@ -2,9 +2,15 @@
 
 namespace App\Http\Resources;
 
+use App\Models\User;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class ProductItemResource extends JsonResource
+/*****************************
+ * Class UserResource
+ * @package App\Http\Resources
+ * @mixin User
+ */
+class UserResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -15,8 +21,10 @@ class ProductItemResource extends JsonResource
     public function toArray($request)
     {
         return [
-            'subject' => $this->subject,    //// نام کالا
-            'count' => $this->count_exist,   //// موجودی انبار
+            'id' => $this->id,
+            'user_name' => $this->name,
+            'email' => $this->email,
+            'verify' => $this->email_verified_at
         ];
     }
 }

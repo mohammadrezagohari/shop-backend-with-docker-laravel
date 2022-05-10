@@ -47,6 +47,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property-read int|null $baskets_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Card[] $Cards
  * @property-read int|null $cards_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Product getFirst($id)
  */
 class Product extends Model
 {

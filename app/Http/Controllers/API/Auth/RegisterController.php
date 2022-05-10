@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Hash;
 use Illuminate\Http\Request;
 use Laravel\Sanctum\HasApiTokens;
 use Symfony\Component\HttpFoundation\Response as HTTPResponse;
@@ -30,14 +31,16 @@ class RegisterController extends Controller
                 'validationError' => $validator->errors()
             ], HTTPResponse::HTTP_BAD_REQUEST);
         }
-        $password = bcrypt($request->password);
+        $password = Hash::make($request->password);
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => $password,
         ]);
+        $token = $user->createToken($request->email, ['*']);
+        $this->accessToken = $token->accessToken;
         return response()->json([
-            'token' => $user->createToken("gohari")->plainTextToken,
+            'token' => $token->plainTextToken,
             'name' => $user->name,
             'message' => 'ثبت نام شما با موفقیت انجام شد'
         ], HTTPResponse::HTTP_OK);
@@ -50,18 +53,29 @@ class RegisterController extends Controller
      */
     public function login(Request $request)
     {
-        if (\Auth::attempt(['email' => $request->email, 'password' => $request->password])) {
-            $user = \Auth::user();
+        $validator = \Validator::make($request->all(), [
+            'email' => 'required|email|exists:users,email',
+            'password' => 'required',
+        ]);
+
+        if ($validator->fails()) {
             return response()->json([
-                'token' => $user->createToken("gohari")->plainTextToken,
-                'name' => $user->name,
-                'message' => 'ورود موفقیت آمیز بود'
-            ], HTTPResponse::HTTP_OK);
-        } else {
+                'validationError' => $validator->errors()
+            ], HTTPResponse::HTTP_BAD_REQUEST);
+        }
+        $user = User::where('email', $request->email)->first();
+        if (!$user || !Hash::check(\request('password'), $user->password)) {
             return response()->json([
                 'errorMessage' => 'خطا! شما در احراز هویت موفق نبوده اید'
             ], HTTPResponse::HTTP_BAD_REQUEST);
         }
+        $token = $user->createToken($request->email, ['*']);
+
+        return response()->json([
+            'token' => $token->plainTextToken,
+            'name' => $user->name,
+            'message' => 'ورود موفقیت آمیز بود'
+        ], HTTPResponse::HTTP_OK);
     }
 
     /**************************************
@@ -71,7 +85,6 @@ class RegisterController extends Controller
      */
     public function logout(Request $request)
     {
-
         $user = $request->user();
         $user->tokens()->delete();
         request()->user()->tokens()->delete();

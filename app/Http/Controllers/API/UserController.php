@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UserResource;
 use App\Repositories\UserRepository\IEloquentUserRepository;
-use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
@@ -17,13 +17,11 @@ class UserController extends Controller
 
     public function index()
     {
-        $user = $this->eloquentUserRepository->listActive();
-
+        return UserResource::collection($this->eloquentUserRepository->listActive());
     }
 
     public function show($id)
     {
-        $user = $this->eloquentUserRepository->show($id);
-        dd($user);
+        return UserResource::make($this->eloquentUserRepository->show($id));
     }
 }

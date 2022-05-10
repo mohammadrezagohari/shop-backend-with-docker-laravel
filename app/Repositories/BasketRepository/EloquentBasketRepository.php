@@ -34,21 +34,21 @@ class EloquentBasketRepository implements IEloquentBasketRepository
 
     public function allItems()
     {
-        //// get current user session
-        $sessionId = session()->getId();
+        //// get current user cookie
+        $cookieId = $_COOKIE['identity'];
         /// are you added item in your basket without login?!
-        $basketSessionCount = Basket::whereCookieIdentity($sessionId)->count();
+        $basketCookieCount = Basket::whereCookieIdentity($cookieId)->count();
         /// are you added item in your basket with authentication
         $basketAuthUserCount = \Auth::user() ? Basket::whereUserId(\Auth::user()->id)->count() : null;
 
-        if (!@$basketAuthUserCount && !@$basketSessionCount)
+        if (!@$basketAuthUserCount && !@$basketCookieCount)
             return null;
 
         if (@$basketAuthUserCount)
             return BasketResource::collection(Basket::whereUserId(\Auth::user()->id)->get());
 
-        if (@$basketSessionCount)
-            return BasketResource::collection(Basket::whereCookieIdentity($sessionId)->get());
+        if (@$basketCookieCount)
+            return BasketResource::collection(Basket::whereCookieIdentity($cookieId)->get());
     }
 
     public function selectItem($id)
@@ -60,6 +60,12 @@ class EloquentBasketRepository implements IEloquentBasketRepository
     {
         $basket = Basket::findOrFail($id);
         return $basket->delete();
+    }
+
+    public function updateItem($id, $product, $count)
+    {
+        Basket::find($id)->Products()->where('id', '=', $product)->updateExistingPivot($id, ['count' => $count]);
+        return Basket::find($id);
     }
 
     public function checkPolicy(User $user = null, $identityCookie)

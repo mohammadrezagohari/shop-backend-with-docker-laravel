@@ -45,6 +45,16 @@ class BasketController extends Controller
         return BasketResource::make($result);
     }
 
+    public function updateItem($id, BasketStoreRequest $request)
+    {
+        $productId = $request->product;
+        $count = $request->count;
+        $result = $this->IEloquentBasketRepository->updateItem($id, $productId, $count);
+        if (@$result)
+            return BasketResource::make($result);;
+        return response()->json(['message' => 'fails']);
+    }
+
     public function deleteItem($id)
     {
         $result = $this->IEloquentBasketRepository->deleteItem($id);
